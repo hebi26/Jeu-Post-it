@@ -1,0 +1,68 @@
+#wrapper {
+    background: #303030;
+    padding: 50px;
+}
+
+.onerow {
+    width: 480px;
+    height: 30px;
+    margin: auto;
+    background: #313131;
+}
+
+.dragonerow{
+  width: 200px;
+  margin: auto;
+}
+
+.dragsquare{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border: 3px solid black;
+
+}
+
+.square {
+    width: 30px;
+    height: 30px;
+
+    margin: 0px;
+
+    outline: 3px solid;
+    display: inline-block;
+    float: left;
+    background: #FFFFFF;
+}
+.prez{
+  height: 150px;
+  background-color: lightblue;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+.bandeau{
+  height: 20px;
+  background-color: #303030;
+  margin-bottom: 50px;
+}
+*{
+  font-family: "Helvetic";
+}
+
+#drag0{
+  background-color: #303030;
+}
+#drag1{
+  background-color: yellow;
+}
+#drag2{
+  background-color: darkred;
+}
+#drag3{
+  background-color: lightblue;
+}
+#drag4{
+  background-color: green;
+}
