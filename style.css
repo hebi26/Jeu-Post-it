@@ -1,68 +1,170 @@
-#wrapper {
-    background: #303030;
-    padding: 50px;
+body{
+  background-image: url("img/pixel.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.row {
+  margin: inherit;
+  padding: inherit;
+	margin-left: 0;
+	display: flex;
+}
+
+.selectcolor {
+  width: 60px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.thumbnail {
+  background-color: black;
+  border: 1px solid lightblue;
+  box-shadow: 5px 5px 15px lightblue;
+  border-radius: 10px;
+}
+
+#preview img {
+  max-height: 482px;
+  border: 1px solid #303030;
+}
+
+#File {
+  display: none;
+}
+
+.upload, .upload:hover {
+  background-color: black;
+  padding: 20px;
+  color: #04BC00;
+	border: 1px solid lightblue;
+  box-shadow: 5px 5px 5px lightblue;
+}
+.upload:hover{
+color: yellow;
+}
+
+.dragonerow {
+  width: 450px !important;
 }
 
 .onerow {
-    width: 480px;
-    height: 30px;
-    margin: auto;
-    background: #313131;
+  width: 480px;
+  height: 15px;
+  margin: auto;
+  background-color: inherit;
 }
 
-.dragonerow{
-  width: 200px;
+h1 {
+  color: yellow;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.dragonerow {
+  width: 480px;
   margin: auto;
 }
 
-.dragsquare{
+.dragsquare {
+  cursor: grab;
   display: inline-block;
   width: 30px;
   height: 30px;
+  border-radius: 50%;
   margin-right: 10px;
-  border: 3px solid black;
+  border: 1px solid white;
+}
+#wrapper{
+	background-image: url("img/pow-star.png");
+	width: 480px;
+	height: 481px;
+	background-size: content;
+	margin: auto;
+	box-shadow: 5px 5px 5px lightblue;
 
 }
-
 .square {
-    width: 30px;
-    height: 30px;
-
-    margin: 0px;
-
-    outline: 3px solid;
-    display: inline-block;
-    float: left;
-    background: #FFFFFF;
+  cursor: cell;
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  outline: 1px solid;
+  display: inline-block;
 }
-.prez{
-  height: 150px;
-  background-color: lightblue;
-  color: white;
-  text-align: center;
+
+#preview {
+  padding-top: 50px;
+}
+
+.reset{
+	width: 100px;
+	padding: 10px 10px;
+	margin: -20px 0px 10px 10px;
+}
+.view{
+	padding: 10px 10px;
+	width: 100px;
+	margin-left: 10px;
+}
+.view:hover{
+	color: yellow;
+}
+.reset:hover{
+	color: yellow;
+}
+
+#selector {
+  width: 480px;
+	margin: auto;
+  background-color: black;
+  border: 1px solid lightblue;
+  box-shadow: 5px 5px 15px lightblue;
+  border-radius: 5px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+
   padding: 25px;
 }
-.bandeau{
-  height: 20px;
-  background-color: #303030;
-  margin-bottom: 50px;
+#selector p{
+	font-size: 10px;
 }
-*{
-  font-family: "Helvetic";
+p {
+  color: #04BC00;
 }
 
-#drag0{
-  background-color: #303030;
+.art {
+  padding-bottom: 50px;
+  padding-top: 50px;
 }
-#drag1{
-  background-color: yellow;
+
+.prez {
+  background-image: url("img/ban.png");
+  height: 130px;
+  padding-top: 30px;
+  text-align: center;
 }
-#drag2{
-  background-color: darkred;
+
+.bandeau {
+  height: 80px;
+  background-color: black;
+  border: 1px solid #04BC00;
+  border-top: none;
+  box-shadow: 5px 5px 5px lightblue;
+  margin-top: -20px;
 }
-#drag3{
-  background-color: lightblue;
+
+* {
+  font-family: "Press Start 2P";
 }
-#drag4{
-  background-color: green;
+
+#inputcolor {
+  cursor: grab;
+}
+
+#drag0 {
+  background-color: white !important;
+  margin-right: 50px;
 }

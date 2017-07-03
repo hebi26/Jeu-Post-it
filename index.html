@@ -15,6 +15,7 @@
     <script src="jquery-ui-1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="./bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
     <link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
@@ -24,12 +25,13 @@
 <body>
 
 <section class="prez">
-<h1>-Recréer tes images favorites en Postit-</h1>
 </section>
-<div class="bandeau"></div>
+<div class="bandeau">
+<h1>------------------------ PIXEL ART -------------</h1>
+</div>
 <div class="row">
 
-<div class="col-xs-12 col-sm-6">
+<div class="art col-xs-12 col-sm-6">
 <div id="selector"></div>
 <div id="wrapper"></div>
 </div>
@@ -37,7 +39,7 @@
 
   <form id="my_form" method="post" action="" enctype="multipart/form-data">
   <div class="form-group">
-    <p>Selectionnez un modèle</p>
+    <label for='userfile' class='upload btn' onclick='$("#File").click();'>Séléctionner un modèle</label>
     <input type="file" name="userfile" size="50" value="" id="File">
     </div>
     <div id="image_preview">
