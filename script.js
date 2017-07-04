@@ -9,7 +9,7 @@ var $square = $("<div />", {
 });
 
 var dragrows = 1;
-var dragcolumns = 32;
+var dragcolumns = 33;
 var $dragonerow = $("<div />", {
   class: 'dragonerow'
 });
@@ -36,7 +36,11 @@ $(document).ready(function() {
 
     // -----------------------creation palette------------------------------------
 
-    $("#selector").append('<div class="row"><div class="col-xs-4"><p>Spectre<br><br><input type="color" name="inputcolor" id="inputcolor"></div><div class="col-xs-4"><p>Selection</p><div class="selectcolor"></div></div><div class="col-xs-4"><button class="reset btn btn-danger">reset</button><button class="view btn btn-success">view</button></div></div>');
+    $("#selector").append('<div class="row"><div class="col-xs-4">'+
+    '<p>Spectre<br><br><input type="color" name="inputcolor" id="inputcolor"></div>'+
+    '<div class="col-xs-4"><p>Selection</p><div class="selectcolor"></div></div>'+
+    '<div class="col-xs-4"><button class="reset btn btn-danger">reset</button>'+
+    '<button class="view btn btn-success">view</button></div></div>');
     $("#selector").append(($dragonerow).clone());
   }
 
@@ -95,7 +99,7 @@ $(document).ready(function() {
   });
 
   // -----------------------caption de la couleur palette----------------------
-  // -----------------on change input color on recup valeur couleur-------------
+  // -----------------event on change input color on recup valeur couleur-----
 
   var k = j - 1;
   $('input[name=inputcolor]').on("change", function() {
@@ -117,14 +121,27 @@ $(document).ready(function() {
 
   });
 
-  // -------function au clic grille on applique la couleur----------------
+  // -------function on applique la couleur à la grille----------------
 
   function tracage() {
-      $(".square").click(function(){
-            $(this).css('backgroundColor', color);
-          });
-};
 
+// -------------clic pour replir une case------------------------------
+
+  $('.square').click(function(){
+$(this).css('backgroundColor', color);
+  });
+
+  // -------mousecatcher pour remplir plusieurs cases----------------------
+$('.square').mousedown(function(){
+  $('.square').mousemove(function(){
+    $(this).css('backgroundColor', color);
+  });
+});
+  $('.square').mouseup(function(){
+    $(".square").off('mousemove');
+
+  });
+};
 
   // ------------function caption de la couleur au click palette-----------------
   $(".selectcolor").css('backgroundColor', 'white');
@@ -135,9 +152,6 @@ $(document).ready(function() {
 
       color = $(this).css('backgroundColor');
       $(".selectcolor").css('backgroundColor', color);
-      console.log(color);
-
-      clickcolor();
       tracage();
     });
   }
@@ -154,12 +168,11 @@ $(document).ready(function() {
 
     $(".view").focusin(function() {
       $(".square").css({
-        'outline': 'none'});
+        'border': 'none'});
 
       $(".view").focusout(function() {
         $(".square").css({
-          'outline': '1px solid'});
+          'border': '1px inset'});
       });
     });
-
 });

@@ -91,7 +91,7 @@ h1 {
   width: 15px;
   height: 15px;
   margin: 0;
-  outline: 1px solid;
+  border: 1px inset;
   display: inline-block;
 }
 
@@ -121,7 +121,7 @@ h1 {
 	margin: auto;
   background-color: black;
   border: 1px solid lightblue;
-  box-shadow: 5px 5px 15px lightblue;
+  box-shadow: 5px 5px 5px lightblue;
   border-radius: 5px;
 	border-bottom-left-radius: 0px;
 	border-bottom-right-radius: 0px;
@@ -161,10 +161,12 @@ p {
 }
 
 #inputcolor {
-  cursor: grab;
+  cursor: pointer;
 }
 
 #drag0 {
+  background-image: url("img/gomme.png");
+  background-size: contain;
   background-color: white !important;
-  margin-right: 50px;
+  border: none;
 }
