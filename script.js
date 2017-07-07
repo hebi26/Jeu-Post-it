@@ -64,6 +64,8 @@ $(document).ready(function() {
     var colorh1 = "#" + Math.random().toString(16).slice(2, 8);
     $("h1").css('color', colorh1);
   };
+  setInterval(changeh1, 500);
+  
 
   // ---------------------UPLOAD DU MODELE----------------------------------
 
@@ -185,7 +187,6 @@ $("#drag0").click(function(){
                             'background-image' : 'url("img/transparence.jpg")'});
 })();
 
-  setInterval(changeh1, 500);
   upload();
   createpal();
 
