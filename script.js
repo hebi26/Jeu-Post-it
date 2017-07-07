@@ -100,6 +100,7 @@ $(document).ready(function() {
 
   // -----------------------caption de la couleur palette----------------------
   // -----------------event on change input color on recup valeur couleur-----
+function createpal(){
 
   var k = j - 1;
   $('input[name=inputcolor]').on("change", function() {
@@ -109,6 +110,8 @@ $(document).ready(function() {
 
 
     // ---------------on créer la palette issue de l'input color--------------------
+
+
 
     $dragsquare = $("<div />", {
       class: 'dragsquare',
@@ -120,6 +123,11 @@ $(document).ready(function() {
     $(".selectcolor").css('backgroundColor', color);
 
   });
+clickcolor();
+tracage();
+}
+
+createpal();
 
   // -------function on applique la couleur à la grille----------------
 
