@@ -11,12 +11,19 @@ body{
 	display: flex;
 }
 
+.selectcolorbox{
+  position: absolute;
+  top: 200px;
+  left: 60px;
+}
+.selectcolorbox p{
+  margin-left: -15px;
+}
 .selectcolor {
   width: 60px;
   height: 40px;
   border: 1px solid white;
   border-radius: 5px;
-  margin-bottom: 20px;
 }
 
 .thumbnail {
@@ -52,9 +59,9 @@ color: yellow;
 
 .onerow {
   width: 480px;
-  height: 15px;
-  margin: auto;
   background-color: inherit;
+  line-height: 14px;
+
 }
 
 h1 {
@@ -65,7 +72,7 @@ h1 {
 
 .dragonerow {
   width: 480px;
-  margin: auto;
+  margin-left: 140px;
 }
 
 .dragsquare {
@@ -77,15 +84,7 @@ h1 {
   margin-right: 10px;
   border: 1px solid white;
 }
-#wrapper{
-	background-image: url("img/skulls.png");
-	width: 480px;
-	height: 481px;
-	background-size: content;
-	margin: auto;
-	box-shadow: 5px 5px 5px lightblue;
 
-}
 .square {
   cursor: cell;
   width: 15px;
@@ -101,11 +100,12 @@ h1 {
 
 .reset{
 	width: 100px;
-	padding: 10px 10px;
-	margin: -20px 0px 10px 10px;
+  height: 50px;
+  margin-left: 100px;
 }
+
 .view{
-	padding: 10px 10px;
+	height: 50px;
 	width: 100px;
 	margin-left: 10px;
 }
@@ -117,22 +117,52 @@ h1 {
 }
 
 #selector {
-  width: 480px;
-	margin: auto;
+  width: 686px;
   background-color: black;
   border: 1px solid lightblue;
   box-shadow: 5px 5px 5px lightblue;
   border-radius: 5px;
-	border-bottom-left-radius: 0px;
-	border-bottom-right-radius: 0px;
+  border-bottom: none;
+  padding : 25px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
 
-  padding: 25px;
+.outils{
+  height: 482px;
+  width: 140px;
+  background-color: black;
 }
-#selector p{
+
+#wrapper{
+	background-image: url("img/skulls.png");
+	width: 480px;
+	height: 480px;
+  padding: 0;
+	background-size: content;
+	box-shadow: 5px 5px 5px lightblue;
+}
+.draw{
+  padding: 0;
+  margin: 0;
+  width: 686px;
+  background-color: black;
+  padding-bottom: 50px;
+  border: 1px solid lightblue;
+  border-top: none;
+  border-radius: 5px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  box-shadow: 5px 5px 5px lightblue;
+}
+
+p{
 	font-size: 10px;
-}
-p {
   color: #04BC00;
+}
+
+.outils p{
+  text-align: center;
 }
 
 .art {
@@ -162,6 +192,11 @@ p {
 
 #inputcolor {
   cursor: pointer;
+  margin-left: 0px;
+}
+
+#inputcolorp{
+  margin-left: 120px;
 }
 
 #drag0 {
@@ -169,4 +204,25 @@ p {
   background-size: contain;
   background-color: transparent !important;
   border: none;
+}
+
+.size1, .size2, .size3{
+  background-color: white;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.size1{
+  width: 15px;
+  height: 15px;
+}
+
+.size2{
+  width: 45px;
+  height: 45px;
+}
+
+.size3{
+  width: 75px;
+  height: 75px;
 }

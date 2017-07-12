@@ -1,11 +1,7 @@
-var rows = 32;
-var columns = 32;
+var rows = 1;
+var columns = 1024;
 var $onerow = $("<div />", {
   class: 'onerow'
-});
-var $square = $("<div />", {
-  class: 'square',
-  id: 'drop'
 });
 
 var dragrows = 1;
@@ -27,10 +23,13 @@ $(document).ready(function() {
     // -----------------------creation palette------------------------------------
 
     $("#selector").append('<div class="row"><div class="col-xs-4">' +
-      '<p>Spectre<br><br><input type="color" name="inputcolor" id="inputcolor"></div>' +
-      '<div class="col-xs-4"><p>Selection</p><div class="selectcolor"></div></div>' +
-      '<div class="col-xs-4"><button class="reset btn btn-danger">reset</button>' +
+      '<p id="inputcolorp">Spectre<br><br><input type="color" name="inputcolor" id="inputcolor"></div>'+
+      '<div class="selectcolorbox"><p>Selection</p><div class="selectcolor"></div></div>'+
+      '<div class="boxbtn col-xs-8"><button class="reset btn btn-danger">reset</button>' +
       '<button class="view btn btn-success">view</button></div></div>');
+
+    $(".outils").append('<p>1px</p><div class="size1"></div><p>3px</p><div class="size2"></div><p>5px</p><div class="size3"></div>');
+
     $("#selector").append(($dragonerow).clone());
   }
 
@@ -55,6 +54,10 @@ $(document).ready(function() {
   }
 
   for (var i = 0; i < columns; i++) {
+    var $square = $("<div />", {
+      class: 'square',
+      id: 'drop'+i
+    });
     $(".onerow").append($square.clone());
   }
 
@@ -65,7 +68,7 @@ $(document).ready(function() {
     $("h1").css('color', colorh1);
   };
   setInterval(changeh1, 500);
-  
+
 
   // ---------------------UPLOAD DU MODELE----------------------------------
 
@@ -130,26 +133,38 @@ $(document).ready(function() {
   }
 
   // -------function on applique la couleur à la grille----------------
-
   function tracage() {
 
     // -------------clic pour replir une case------------------------------
 
-    $('.square').click(function() {
+    for (var i = 0; i < columns; i++) {
+
+    $('#drop'+i).click(function() {
+
       $(this).css('backgroundColor', color);
-    });
+      var l=$(this).attr("id");
+      l=l+1;
+      $('drop'+l).css('backgroundColor', color);
 
+
+
+      console.log(l);
+
+
+    });
+}
     // -------mousecatcher pour remplir plusieurs cases----------------------
-    $('.square').mousedown(function() {
-      $('.square').mousemove(function() {
-        $(this).css('backgroundColor', color);
-      });
-    });
-    $('.square').mouseup(function() {
-      $(".square").off('mousemove');
-
-    });
-  };
+    // $('.square').mousedown(function() {
+    //   $('.square').mousemove(function() {
+    //     $(this).css('backgroundColor', color);
+    //
+    //   });
+    // });
+    // $('.square').mouseup(function() {
+    //   $('.square').off('mousemove');
+    //
+    // });
+};
 
   // ------------function caption de la couleur au click palette----------------
 
@@ -158,8 +173,16 @@ $(document).ready(function() {
     $(".dragsquare").click(function() {
 
       color = $(this).css('backgroundColor');
-      $(".selectcolor").css('backgroundColor', color);
+      $(".selectcolor").css({'backgroundColor': color,
+                             'background-image' : 'none'});
     });
+
+    $("#drag0").click(function(){
+
+        $(".selectcolor").css({'backgroundColor': 'transparent',
+                                'background-image' : 'url("img/transparence.jpg")'});
+    });
+
   }
 
   // ---------------function reset la grille-------------------------
@@ -180,12 +203,8 @@ $(document).ready(function() {
       });
     });
   }
+// ------------------------function size----------------------------------
 
-$("#drag0").click(function(){
-
-    $(".selectcolor").css({'backgroundColor': 'transparent',
-                            'background-image' : 'url("img/transparence.jpg")'});
-})();
 
   upload();
   createpal();
