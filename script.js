@@ -1,8 +1,5 @@
 var rows = 1;
 var columns = 1024;
-var $onerow = $("<div />", {
-  class: 'onerow'
-});
 
 var dragrows = 1;
 var dragcolumns = 33;
@@ -50,13 +47,16 @@ $(document).ready(function() {
 
 
   for (var i = 0; i < rows; i++) {
+    var $onerow = $("<div />", {
+      class: 'onerow'
+    });
     $("#wrapper").append($onerow.clone());
   }
 
   for (var i = 0; i < columns; i++) {
     var $square = $("<div />", {
       class: 'square',
-      id: 'drop'+i
+      id: i
     });
     $(".onerow").append($square.clone());
   }
@@ -132,38 +132,20 @@ $(document).ready(function() {
 
   }
 
+
+
+
   // -------function on applique la couleur à la grille----------------
   function tracage() {
+  pinceau1px();
 
-    // -------------clic pour replir une case------------------------------
+  $(".size2").click(function(){
+  cube3px();
+  });
 
-    for (var i = 0; i < columns; i++) {
-
-    $('#drop'+i).click(function() {
-
-      $(this).css('backgroundColor', color);
-      var l=$(this).attr("id");
-      l=l+1;
-      $('drop'+l).css('backgroundColor', color);
-
-
-
-      console.log(l);
-
-
-    });
-}
-    // -------mousecatcher pour remplir plusieurs cases----------------------
-    // $('.square').mousedown(function() {
-    //   $('.square').mousemove(function() {
-    //     $(this).css('backgroundColor', color);
-    //
-    //   });
-    // });
-    // $('.square').mouseup(function() {
-    //   $('.square').off('mousemove');
-    //
-    // });
+  $(".size1").click(function(){
+  pinceau1px();
+  });
 };
 
   // ------------function caption de la couleur au click palette----------------
@@ -203,7 +185,72 @@ $(document).ready(function() {
       });
     });
   }
-// ------------------------function size----------------------------------
+
+// ------------------------pinceau 1px---------------------------------
+function pinceau1px(){
+
+$('.square').click(function(){
+
+$(this).css('backgroundColor', color);
+
+});
+    $('.square').mousedown(function() {
+      $('.square').mousemove(function() {
+
+        $(this).css('backgroundColor', color);
+      });
+    });
+    $('.square').mouseup(function() {
+      $('.square').off('mousemove');
+
+    });
+}
+
+// ------------------------pinceau 3px---------------------------------//
+
+function cube3px(){
+
+$('.square').click(function(){
+
+  var id= $(this).attr("id");
+  var idint= parseInt(id);
+
+  $(this).css('backgroundColor', color);
+  $("#"+(idint+1)).css('backgroundColor', color);
+  $("#"+(idint-1)).css('backgroundColor', color);
+  $("#"+(idint+31)).css('backgroundColor', color);
+  $("#"+(idint+32)).css('backgroundColor', color);
+  $("#"+(idint+33)).css('backgroundColor', color);
+  $("#"+(idint-31)).css('backgroundColor', color);
+  $("#"+(idint-32)).css('backgroundColor', color);
+  $("#"+(idint-33)).css('backgroundColor', color);
+
+
+});
+
+  $('.square').mousedown(function() {
+    $('.square').mousemove(function() {
+
+      var id= $(this).attr("id");
+      var idint= parseInt(id);
+
+      $(this).css('backgroundColor', color);
+      $("#"+(idint+1)).css('backgroundColor', color);
+      $("#"+(idint-1)).css('backgroundColor', color);
+      $("#"+(idint+31)).css('backgroundColor', color);
+      $("#"+(idint+32)).css('backgroundColor', color);
+      $("#"+(idint+33)).css('backgroundColor', color);
+      $("#"+(idint-31)).css('backgroundColor', color);
+      $("#"+(idint-32)).css('backgroundColor', color);
+      $("#"+(idint-33)).css('backgroundColor', color);
+
+    });
+  });
+  $('.square').mouseup(function() {
+    $('.square').off('mousemove');
+
+  });
+  };
 
 
   upload();
